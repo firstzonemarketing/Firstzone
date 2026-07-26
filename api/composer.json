@@ -1,0 +1,19 @@
+{
+    "require": {
+        "laravel/framework": "^13.21",
+        "illuminate/database": "*",
+        "illuminate/http": "*",
+        "illuminate/routing": "*",
+        "illuminate/support": "*",
+        "illuminate/events": "*",
+        "illuminate/container": "*",
+        "illuminate/filesystem": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    }
+}
