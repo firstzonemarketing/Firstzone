@@ -13,7 +13,6 @@ import AnimeSpeedLines from "@/components/AnimeSpeedLines";
 
 // Sections
 import Hero from "@/components/sections/Hero";
-import WorkGallery from "@/components/sections/WorkGallery";
 import Services from "@/components/sections/Services";
 import CreativeSpectrum from "@/components/sections/CreativeSpectrum";
 import Process from "@/components/sections/Process";
@@ -61,9 +60,6 @@ export default function Home() {
       <main className="relative w-full">
         {/* Hero Section */}
         <Hero />
-
-        {/* Animated Work Gallery Section */}
-        <WorkGallery />
 
         {/* Interactive Universe Services Section */}
         <Services />

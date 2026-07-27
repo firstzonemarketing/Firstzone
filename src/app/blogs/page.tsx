@@ -6,6 +6,7 @@ import { Search, Calendar, Clock, ArrowRight } from "lucide-react";
 import BackgroundElements from "@/components/BackgroundElements";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
+import WorkGallery from "@/components/sections/WorkGallery";
 import { getBlogs, getBlogCategories, BlogItem } from "@/lib/api";
 
 export default function BlogsPage() {
@@ -300,6 +301,11 @@ export default function BlogsPage() {
             </button>
           </div>
         )}
+
+        {/* OUR WORK GALLERY SECTION ON BLOG PAGE */}
+        <div className="mt-24 pt-16 border-t border-primary-blue/15">
+          <WorkGallery />
+        </div>
 
       </main>
     </div>
