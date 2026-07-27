@@ -5,7 +5,7 @@ import AnimatedShuffleGallery from "@/components/AnimatedShuffleGallery";
 
 export default function WorkGallery() {
   return (
-    <section id="gallery" className="relative py-20 sm:py-24 px-4 sm:px-6 overflow-hidden">
+    <section id="gallery" className="relative py-20 sm:py-24 px-4 sm:px-6 overflow-hidden select-none">
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}
