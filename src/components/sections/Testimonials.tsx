@@ -46,6 +46,17 @@ const TESTIMONIALS: RealTestimonial[] = [
       "The team is professional, creative, and always delivers on time. We truly appreciate their dedication and support in growing our business. Thank you, FirstZone Marketing, for being a trusted marketing partner. We highly recommend your services to any business looking to build a strong digital presence. Wishing the entire FirstZone Marketing team continued success and all the very best!",
     ],
   },
+  {
+    id: 4,
+    company: "Chikankari Closet",
+    subtitle: "Video Production & SEO Strategy Partner",
+    logo: "/testimonials/chikankari.png",
+    paragraphs: [
+      "We are extremely happy with the services provided by FirstZone Marketing. Their team has been instrumental in strengthening our online presence through professional product video shoots and SEO services.",
+      "The video content they created beautifully showcased our Chikankari collections, helping us engage more customers across social media. Their SEO strategies have also improved our website's visibility, making it easier for potential customers to discover our brand online.",
+      "The team is creative, dedicated, and always delivers quality work on time. Their expertise and commitment have added real value to our business, and we have seen a noticeable improvement in our digital reach. Thank you, FirstZone Marketing, for your outstanding support and professionalism. We highly recommend your services to any business looking to grow online. Wishing the entire FirstZone Marketing team continued success and all the very best!",
+    ],
+  },
 ];
 
 export default function Testimonials() {
