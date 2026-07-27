@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import Lenis from "lenis";
-import { Heart, Code, Sparkles } from "lucide-react";
+import { Heart, Code } from "lucide-react";
 
 // Components
 import CustomCursor from "@/components/CustomCursor";
@@ -14,7 +14,6 @@ import AnimeSpeedLines from "@/components/AnimeSpeedLines";
 // Sections
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
-import CreativeSpectrum from "@/components/sections/CreativeSpectrum";
 import Process from "@/components/sections/Process";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Portfolio from "@/components/sections/Portfolio";
@@ -63,9 +62,6 @@ export default function Home() {
 
         {/* Interactive Universe Services Section */}
         <Services />
-
-        {/* Ribbon Spread Turnover Creative Spectrum Section */}
-        <CreativeSpectrum />
 
         {/* How We Work 6-Step Rocket Process Section */}
         <Process />
