@@ -57,6 +57,17 @@ const TESTIMONIALS: RealTestimonial[] = [
       "The team is creative, dedicated, and always delivers quality work on time. Their expertise and commitment have added real value to our business, and we have seen a noticeable improvement in our digital reach. Thank you, FirstZone Marketing, for your outstanding support and professionalism. We highly recommend your services to any business looking to grow online. Wishing the entire FirstZone Marketing team continued success and all the very best!",
     ],
   },
+  {
+    id: 5,
+    company: "Bethany Pre School",
+    subtitle: "Pre-School & Day Care • Photo/Video & Social Media Partner",
+    logo: "/testimonials/bethany.png",
+    paragraphs: [
+      "We had a wonderful experience working with FirstZone Marketing. Their team has been creating engaging social media content and conducting professional photo and video shoots that beautifully capture our preschool activities, events, and joyful moments.",
+      "The creative reels, posters, and videos have helped us connect with parents and showcase the warm, nurturing environment at our preschool. Their dedication, creativity, and attention to detail have significantly enhanced our online presence and strengthened our brand.",
+      "The team is professional, punctual, and always understands our requirements perfectly. We truly appreciate their continuous support and innovative ideas. Thank you, FirstZone Marketing, for helping us share our journey with so many families. We highly recommend your services to anyone looking for creative and effective digital marketing solutions. Wishing the entire FirstZone Marketing team continued success and all the very best!",
+    ],
+  },
 ];
 
 export default function Testimonials() {
