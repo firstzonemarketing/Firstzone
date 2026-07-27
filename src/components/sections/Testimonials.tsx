@@ -9,6 +9,7 @@ interface RealTestimonial {
   company: string;
   subtitle: string;
   logo: string;
+  logoBg?: string;
   paragraphs: string[];
 }
 
@@ -68,6 +69,18 @@ const TESTIMONIALS: RealTestimonial[] = [
       "The team is professional, punctual, and always understands our requirements perfectly. We truly appreciate their continuous support and innovative ideas. Thank you, FirstZone Marketing, for helping us share our journey with so many families. We highly recommend your services to anyone looking for creative and effective digital marketing solutions. Wishing the entire FirstZone Marketing team continued success and all the very best!",
     ],
   },
+  {
+    id: 6,
+    company: "Symphony Music School",
+    subtitle: "Music Academy • Video Production & Social Media Partner",
+    logo: "/testimonials/symphony.png",
+    logoBg: "bg-slate-950",
+    paragraphs: [
+      "We are delighted to work with FirstZone Marketing. Their team has done an exceptional job with professional video shoots and social media marketing for Symphony Music School.",
+      "The videos they created beautifully captured our music classes, student performances, and the vibrant atmosphere of our academy. Their creative content and consistent social media management have helped us reach more students, increase engagement, and build a stronger online presence.",
+      "The team is highly professional, creative, and always delivers quality work on time. Their dedication and innovative marketing strategies have made a real difference in promoting our music school. Thank you, FirstZone Marketing, for your outstanding support and commitment. We highly recommend your services to anyone looking to grow their brand through creative digital marketing. Wishing the entire FirstZone Marketing team continued success and all the very best!",
+    ],
+  },
 ];
 
 export default function Testimonials() {
@@ -107,12 +120,12 @@ export default function Testimonials() {
           </p>
 
           {/* Review Switcher Tabs */}
-          <div className="flex flex-wrap justify-center items-center gap-2.5 mt-8">
+          <div className="flex flex-wrap justify-center items-center gap-2 mt-8">
             {TESTIMONIALS.map((t, idx) => (
               <button
                 key={t.id}
                 onClick={() => setActiveIndex(idx)}
-                className={`px-4 py-2 rounded-2xl font-black text-xs uppercase tracking-wider transition-all duration-300 border-2 ${
+                className={`px-3.5 py-1.5 rounded-2xl font-black text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 border-2 ${
                   activeIndex === idx
                     ? "bg-primary-blue text-bg-yellow border-primary-blue shadow-lg scale-105"
                     : "glassmorphism text-foreground border-primary-blue/10 hover:border-primary-blue/30"
@@ -163,7 +176,7 @@ export default function Testimonials() {
               <div className="flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-primary-blue/15 pt-8">
                 <div className="flex items-center gap-5">
                   {/* Brand Logo Container */}
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-2 border-2 border-primary-blue/20 shadow-md flex items-center justify-center overflow-hidden flex-shrink-0">
+                  <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl ${activeReview.logoBg || "bg-white"} p-2 border-2 border-primary-blue/20 shadow-md flex items-center justify-center overflow-hidden flex-shrink-0`}>
                     <img
                       src={activeReview.logo}
                       alt={`${activeReview.company} Logo`}
