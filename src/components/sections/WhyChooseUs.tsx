@@ -25,7 +25,7 @@ export default function WhyChooseUs() {
   const heroes: Hero[] = [
     {
       id: "director",
-      name: "Director & Digital Marketer",
+      name: "Director",
       strength: "Executive & Growth Lead",
       powerName: "Omnichannel Command",
       powerLevel: 99,

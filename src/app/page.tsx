@@ -13,8 +13,8 @@ import AnimeSpeedLines from "@/components/AnimeSpeedLines";
 
 // Sections
 import Hero from "@/components/sections/Hero";
-import Services from "@/components/sections/Services";
 import Process from "@/components/sections/Process";
+import Services from "@/components/sections/Services";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Portfolio from "@/components/sections/Portfolio";
 import Statistics from "@/components/sections/Statistics";
@@ -57,31 +57,31 @@ export default function Home() {
 
       {/* Content Layout */}
       <main className="relative w-full">
-        {/* Hero Section */}
+        {/* 1st Section: Hero */}
         <Hero />
 
-        {/* Interactive Universe Services Section */}
-        <Services />
-
-        {/* How We Work 6-Step Rocket Process Section */}
+        {/* 2nd Section: How We Work 6-Step Rocket Process Section */}
         <Process />
 
-        {/* Why Choose Us Split Section */}
+        {/* 3rd Section: Interactive Universe Services Section */}
+        <Services />
+
+        {/* 4th Section: Why Choose Us Split Section */}
         <WhyChooseUs />
 
-        {/* Masonry / Grid Portfolio Section */}
+        {/* 5th Section: Masonry / Grid Portfolio Section */}
         <Portfolio />
 
-        {/* Counter Milestones Statistics Section */}
+        {/* 6th Section: Counter Milestones Statistics Section */}
         <Statistics />
 
-        {/* Reviews Speech Bubbles Testimonials Section */}
+        {/* 7th Section: Reviews Speech Bubbles Testimonials Section */}
         <Testimonials />
 
-        {/* Accordions Bounce FAQ Section */}
+        {/* 8th Section: Accordions Bounce FAQ Section */}
         <FAQ />
 
-        {/* Form coordinates Contact Section */}
+        {/* 9th Section: Form coordinates Contact Section */}
         <Contact />
       </main>
 
