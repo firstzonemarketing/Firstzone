@@ -62,7 +62,7 @@ function CounterStat({ target, suffix, label, delay = 0 }: StatItemProps) {
         {count}
         {suffix}
       </motion.div>
-      <div className="text-sm font-black text-foreground/80 uppercase tracking-widest">
+      <div className="text-xs sm:text-sm font-black text-foreground/80 uppercase tracking-widest">
         {label}
       </div>
     </div>
@@ -71,15 +71,15 @@ function CounterStat({ target, suffix, label, delay = 0 }: StatItemProps) {
 
 export default function Statistics() {
   return (
-    <section className="relative py-20 px-6 overflow-hidden">
+    <section className="relative py-20 px-6 overflow-hidden select-none">
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Statistics Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          <CounterStat target={500} suffix="+" label="Projects Done" delay={0} />
-          <CounterStat target={200} suffix="+" label="Happy Clients" delay={200} />
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <CounterStat target={30} suffix="+" label="Projects Completed" delay={0} />
+          <CounterStat target={20} suffix="+" label="Happy Clients" delay={200} />
           <CounterStat target={95} suffix="%" label="Success Rate" delay={400} />
-          <CounterStat target={10} suffix="+" label="Years Active" delay={600} />
+          <CounterStat target={3} suffix="+" label="Years of Experience" delay={600} />
         </div>
 
       </div>
