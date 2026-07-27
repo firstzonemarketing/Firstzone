@@ -1,21 +1,29 @@
 <IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
-    </IfModule>
-
     RewriteEngine On
+    RewriteBase /
 
-    # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    # Disable directory listing
+    Options -Indexes
 
-    # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
+    # Serve existing files and directories directly
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
 
-    # Send Requests To Front Controller...
-    RewriteCond %{REQUEST_FILENAME} !-d
+    # Map /admin-leads or /admin-leads/ to admin-leads.html
+    RewriteCond %{DOCUMENT_ROOT}/admin-leads.html -f
+    RewriteRule ^admin-leads/?$ admin-leads.html [L]
+
+    # Map /blogs or /blogs/ to blogs.html
+    RewriteCond %{DOCUMENT_ROOT}/blogs.html -f
+    RewriteRule ^blogs/?$ blogs.html [L]
+
+    # Map clean URLs to .html files if they exist (e.g. /blog/slug -> /blog/slug.html)
+    RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI}.html -f
+    RewriteRule ^(.*)$ $1.html [L]
+
+    # Fallback to index.html for single page application routing
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
 </IfModule>
