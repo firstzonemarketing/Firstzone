@@ -81,6 +81,17 @@ const TESTIMONIALS: RealTestimonial[] = [
       "The team is highly professional, creative, and always delivers quality work on time. Their dedication and innovative marketing strategies have made a real difference in promoting our music school. Thank you, FirstZone Marketing, for your outstanding support and commitment. We highly recommend your services to anyone looking to grow their brand through creative digital marketing. Wishing the entire FirstZone Marketing team continued success and all the very best!",
     ],
   },
+  {
+    id: 7,
+    company: "Lakshya Group",
+    subtitle: "Your Goal Our Mission • Video Production & Media Partner",
+    logo: "/testimonials/lakshya.png",
+    paragraphs: [
+      "We had an excellent experience working with FirstZone Marketing. Their team delivered high-quality professional video shoots and engaging social media content that perfectly represented the vision and values of Lakshya Group.",
+      "The videos were creative, well-produced, and effectively showcased our projects and services. Their content strategy, posters, and social media creatives helped us improve our online presence, increase audience engagement, and strengthen our brand identity.",
+      "The FirstZone Marketing team is professional, creative, and always committed to delivering quality work on time. Their support and innovative ideas have been valuable to our business growth. Thank you, FirstZone Marketing, for your dedication and outstanding service. We highly recommend your digital marketing and creative services to any business looking to enhance its brand. Wishing the entire FirstZone Marketing team continued success and all the very best!",
+    ],
+  },
 ];
 
 export default function Testimonials() {
@@ -125,7 +136,7 @@ export default function Testimonials() {
               <button
                 key={t.id}
                 onClick={() => setActiveIndex(idx)}
-                className={`px-3.5 py-1.5 rounded-2xl font-black text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 border-2 ${
+                className={`px-3 py-1 rounded-2xl font-black text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 border-2 ${
                   activeIndex === idx
                     ? "bg-primary-blue text-bg-yellow border-primary-blue shadow-lg scale-105"
                     : "glassmorphism text-foreground border-primary-blue/10 hover:border-primary-blue/30"
