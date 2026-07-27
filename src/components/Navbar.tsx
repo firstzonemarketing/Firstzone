@@ -2,50 +2,55 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import { Sun, Moon, Menu, X, Rocket, Sparkles } from "lucide-react";
 import confetti from "canvas-confetti";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
-  // Monitor scroll for glass effect
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Sync theme
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-      setIsDarkMode(true);
+    // Check initial dark mode preference
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      setDarkMode(true);
       document.documentElement.classList.add("dark");
     } else {
-      setIsDarkMode(false);
+      setDarkMode(false);
       document.documentElement.classList.remove("dark");
     }
   }, []);
 
-  const toggleTheme = () => {
-    if (isDarkMode) {
+  const toggleDarkMode = () => {
+    if (darkMode) {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
+      setDarkMode(false);
     } else {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
-      setIsDarkMode(true);
+      setDarkMode(true);
     }
   };
 
   const handleLogoClick = () => {
-    // Blast confetti!
     confetti({
       particleCount: 150,
       spread: 80,
@@ -65,7 +70,7 @@ export default function Navbar() {
     { name: "Why Us", href: "/#why-us" },
     { name: "Portfolio", href: "/#portfolio" },
     { name: "Process", href: "/#process" },
-    { name: "Gallery", href: "/#gallery" },
+    { name: "Gallery", href: "/blogs#gallery" },
     { name: "Blog", href: "/blogs" },
     { name: "FAQ", href: "/#faq" },
     { name: "Contact", href: "/#contact" },
@@ -88,127 +93,112 @@ export default function Navbar() {
           <button
             onClick={handleLogoClick}
             className="flex items-center gap-2 group select-none"
+            data-cursor="pointer"
           >
-            <motion.img
-              src="/logo.jpg"
-              alt="First Zone Logo"
-              className="h-10 w-auto rounded-xl shadow-md border-2 border-primary-blue/20"
-              whileHover={{ scale: 1.08, rotate: 2 }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            />
+            <div className="w-10 h-10 rounded-2xl overflow-hidden border-2 border-primary-blue shadow-md group-hover:scale-105 transition-transform bg-primary-blue flex items-center justify-center text-bg-yellow font-black text-xl">
+              <img src="/logo.jpg" alt="First Zone Logo" className="w-full h-full object-cover" />
+            </div>
+            <div className="flex flex-col text-left">
+              <span className="font-extrabold text-foreground text-lg leading-none tracking-tight group-hover:text-primary-blue transition-colors">
+                FIRST<span className="text-primary-blue dark:text-accent-blue">ZONE</span>
+              </span>
+              <span className="text-[10px] font-bold text-foreground/60 tracking-widest uppercase mt-0.5">
+                Digital Marketing
+              </span>
+            </div>
           </button>
 
           {/* Desktop Nav Items */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-7">
             {menuItems.map((item) => (
-              <motion.a
+              <a
                 key={item.name}
                 href={item.href}
-                className="relative font-bold text-sm text-foreground/80 hover:text-primary-blue dark:hover:text-accent-blue transition-colors px-1 py-1"
-                whileHover={{ scale: 1.05 }}
+                className="text-xs font-black uppercase tracking-wider text-foreground/80 hover:text-primary-blue dark:hover:text-accent-blue transition-colors relative py-1 group"
+                data-cursor="pointer"
               >
                 {item.name}
-                {/* Custom animated underline */}
-                <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-blue dark:bg-accent-blue origin-left"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.2 }}
-                />
-              </motion.a>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-blue dark:bg-accent-blue transition-all duration-300 group-hover:w-full" />
+              </a>
             ))}
           </div>
 
-          {/* Right Action Items */}
+          {/* Right Action Controls */}
           <div className="hidden md:flex items-center gap-4">
-            {/* Theme Toggle Button */}
-            <motion.button
-              onClick={toggleTheme}
-              className="p-2.5 rounded-xl glassmorphism border border-primary-blue/15 text-foreground hover:bg-primary-blue/10 transition-colors"
-              whileHover={{ scale: 1.1, rotate: 15 }}
-              whileTap={{ scale: 0.9 }}
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={toggleDarkMode}
+              className="p-2.5 rounded-full glassmorphism text-foreground hover:text-primary-blue transition-all duration-300 border border-primary-blue/20 hover:scale-110"
               aria-label="Toggle Theme"
+              data-cursor="pointer"
             >
-              {isDarkMode ? (
-                <Sun className="w-5 h-5 text-bg-yellow" />
-              ) : (
-                <Moon className="w-5 h-5 text-primary-blue" />
-              )}
-            </motion.button>
+              {darkMode ? <Sun size={18} className="text-bg-yellow" /> : <Moon size={18} className="text-primary-blue" />}
+            </button>
 
-            {/* CTA Button */}
-            <motion.a
+            {/* Launch CTA Button */}
+            <a
               href="/#contact"
-              className="px-5 py-2.5 rounded-xl bg-primary-blue text-bg-yellow font-black text-xs uppercase tracking-wider shadow-md hover:shadow-primary-blue/30 transition-all border border-primary-blue"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              className="relative group overflow-hidden px-5 py-2.5 rounded-full bg-primary-blue text-bg-yellow font-black text-xs uppercase tracking-wider shadow-lg hover:shadow-xl hover:shadow-primary-blue/30 transition-all duration-300 flex items-center gap-2 border border-bg-yellow/40"
+              data-cursor="rocket"
             >
-              Get Started
-            </motion.a>
+              <Rocket size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <span>Launch Project</span>
+            </a>
           </div>
 
           {/* Mobile Hamburger Button */}
           <div className="flex md:hidden items-center gap-3">
             <button
-              onClick={toggleTheme}
-              className="p-2 rounded-xl glassmorphism text-foreground"
+              onClick={toggleDarkMode}
+              className="p-2 rounded-full glassmorphism text-foreground border border-primary-blue/20"
+              aria-label="Toggle Theme"
             >
-              {isDarkMode ? (
-                <Sun className="w-5 h-5 text-bg-yellow" />
-              ) : (
-                <Moon className="w-5 h-5 text-primary-blue" />
-              )}
+              {darkMode ? <Sun size={18} className="text-bg-yellow" /> : <Moon size={18} className="text-primary-blue" />}
             </button>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl glassmorphism text-foreground"
+              className="p-2.5 rounded-2xl glassmorphism text-foreground border border-primary-blue/20"
+              aria-label="Toggle Mobile Menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
       </motion.nav>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Navigation */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-50 bg-bg-yellow dark:bg-slate-900 flex flex-col justify-between p-6 md:hidden"
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-30 bg-slate-950/80 backdrop-blur-lg pt-28 px-6 flex flex-col justify-between pb-10 md:hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
           >
-            <div className="flex items-center justify-between">
-              <img src="/logo.jpg" alt="First Zone Logo" className="h-10 w-auto rounded-xl" />
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-2 rounded-full bg-primary-blue text-bg-yellow font-bold"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            <div className="flex flex-col gap-6 text-center my-auto">
+            <div className="flex flex-col gap-6 text-center">
               {menuItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-2xl font-black text-slate-900 dark:text-slate-100 hover:text-primary-blue transition-colors"
+                  className="text-lg font-black text-white hover:text-bg-yellow uppercase tracking-wider transition-colors"
                 >
                   {item.name}
                 </a>
               ))}
             </div>
 
-            <a
-              href="/#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-4 text-center rounded-2xl bg-primary-blue text-bg-yellow font-black text-sm uppercase tracking-wider shadow-lg"
-            >
-              Get Started Now
-            </a>
+            <div className="w-full">
+              <a
+                href="/#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-4 rounded-2xl bg-primary-blue text-bg-yellow font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl border border-bg-yellow/40"
+              >
+                <Rocket size={18} />
+                <span>Launch Project</span>
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
