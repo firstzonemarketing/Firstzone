@@ -35,6 +35,17 @@ const TESTIMONIALS: RealTestimonial[] = [
       "Thank you, FirstZone Marketing, for your continuous support and excellent service. We truly appreciate your efforts and highly recommend your services to businesses looking to grow their brand. Wishing the entire FirstZone Marketing team continued success. Keep up the great work!",
     ],
   },
+  {
+    id: 3,
+    company: "Sanskriti Collection",
+    subtitle: "Shopify E-Commerce & Product Media Partner",
+    logo: "/testimonials/sanskriti.png",
+    paragraphs: [
+      "We are delighted to work with FirstZone Marketing. Their team has done an outstanding job in developing our Shopify website, making it modern, user-friendly, and perfectly suited to our brand.",
+      "Apart from the website, they have been handling our social media marketing, professional product video shoots, creative poster designs, and AI-generated promotional videos. Their innovative ideas and high-quality work have helped us showcase our collections in a more attractive and engaging way, resulting in better customer reach and brand awareness.",
+      "The team is professional, creative, and always delivers on time. We truly appreciate their dedication and support in growing our business. Thank you, FirstZone Marketing, for being a trusted marketing partner. We highly recommend your services to any business looking to build a strong digital presence. Wishing the entire FirstZone Marketing team continued success and all the very best!",
+    ],
+  },
 ];
 
 export default function Testimonials() {
@@ -74,7 +85,7 @@ export default function Testimonials() {
           </p>
 
           {/* Review Switcher Tabs */}
-          <div className="flex justify-center items-center gap-3 mt-8">
+          <div className="flex flex-wrap justify-center items-center gap-2.5 mt-8">
             {TESTIMONIALS.map((t, idx) => (
               <button
                 key={t.id}
