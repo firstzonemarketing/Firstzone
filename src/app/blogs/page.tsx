@@ -7,6 +7,7 @@ import BackgroundElements from "@/components/BackgroundElements";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import WorkGallery from "@/components/sections/WorkGallery";
+import Footer from "@/components/Footer";
 import { getBlogs, getBlogCategories, BlogItem } from "@/lib/api";
 
 export default function BlogsPage() {
@@ -308,6 +309,9 @@ export default function BlogsPage() {
         </div>
 
       </main>
+
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 }
