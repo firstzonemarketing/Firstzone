@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="relative z-10 border-t border-primary-blue/15 glassmorphism-card py-12 px-6 text-center text-xs font-bold text-foreground/80 select-none shadow-2xl">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         
-        {/* Left: Copyright & MSME Registration Tag */}
+        {/* Left: Copyright & MSME Tag */}
         <div className="flex flex-col items-center md:items-start gap-1">
           <span className="tracking-wide text-foreground/75 font-bold">
             © 2026 First Zone Digital Marketing. All rights reserved.
@@ -19,19 +19,32 @@ export default function Footer() {
           </span>
         </div>
 
-        {/* Center: Official Online-Downloaded MSME Logo Badge */}
-        <div className="flex items-center gap-3 bg-white dark:bg-slate-900/90 px-4 py-2 rounded-2xl border border-primary-blue/20 shadow-lg hover:border-primary-blue/50 transition-all duration-300 group">
-          <img
-            src="/msme_logo.svg"
-            alt="Ministry of MSME, Govt. of India"
-            className="h-10 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
-          />
-          <div className="hidden sm:flex flex-col text-left border-l border-slate-200 dark:border-slate-800 pl-3">
-            <span className="text-[11px] font-black text-slate-900 dark:text-slate-100 uppercase tracking-tight">
-              Ministry of MSME
+        {/* Center: Distinct White Box Container for MSME Logo with Black Text */}
+        <div className="bg-white text-slate-950 px-5 py-2.5 rounded-2xl border-2 border-slate-200 shadow-xl flex items-center gap-3.5 hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 select-none cursor-default">
+          {/* MSME Emblem Image */}
+          <div className="flex-shrink-0 flex items-center justify-center">
+            <img
+              src="/msme_logo.svg"
+              alt="Ministry of MSME, Govt. of India"
+              className="h-10 sm:h-11 w-auto object-contain"
+            />
+          </div>
+
+          {/* Black Text Container */}
+          <div className="flex flex-col text-left border-l-2 border-slate-300 pl-3.5">
+            <div className="flex items-center gap-1.5">
+              <span className="text-sm font-black text-black tracking-tight uppercase leading-none">
+                MSME
+              </span>
+              <span className="text-[9px] font-black bg-slate-900 text-white px-1.5 py-0.5 rounded uppercase tracking-wider">
+                Govt. Registered
+              </span>
+            </div>
+            <span className="text-[10px] font-extrabold text-black uppercase tracking-tight leading-tight mt-1">
+              Micro, Small & Medium Enterprises
             </span>
-            <span className="text-[9px] font-bold text-slate-500 dark:text-slate-400">
-              Govt. of India Registered
+            <span className="text-[9px] font-bold text-slate-700 tracking-wide mt-0.5">
+              Ministry of MSME • Govt. of India
             </span>
           </div>
         </div>
