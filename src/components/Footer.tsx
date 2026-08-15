@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="relative z-10 border-t border-primary-blue/15 glassmorphism-card py-12 px-6 text-center text-xs font-bold text-foreground/80 select-none shadow-2xl">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         
-        {/* Left: Copyright & MSME Tag */}
+        {/* Left: Copyright & MSME Registration Tag */}
         <div className="flex flex-col items-center md:items-start gap-1">
           <span className="tracking-wide text-foreground/75 font-bold">
             © 2026 First Zone Digital Marketing. All rights reserved.
@@ -19,34 +19,13 @@ export default function Footer() {
           </span>
         </div>
 
-        {/* Center: Distinct White Box Container for MSME Logo with Black Text */}
-        <div className="bg-white text-slate-950 px-5 py-2.5 rounded-2xl border-2 border-slate-200 shadow-xl flex items-center gap-3.5 hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 select-none cursor-default">
-          {/* MSME Emblem Image */}
-          <div className="flex-shrink-0 flex items-center justify-center">
-            <img
-              src="/msme_logo.svg"
-              alt="Ministry of MSME, Govt. of India"
-              className="h-10 sm:h-11 w-auto object-contain"
-            />
-          </div>
-
-          {/* Black Text Container */}
-          <div className="flex flex-col text-left border-l-2 border-slate-300 pl-3.5">
-            <div className="flex items-center gap-1.5">
-              <span className="text-sm font-black text-black tracking-tight uppercase leading-none">
-                MSME
-              </span>
-              <span className="text-[9px] font-black bg-slate-900 text-white px-1.5 py-0.5 rounded uppercase tracking-wider">
-                Govt. Registered
-              </span>
-            </div>
-            <span className="text-[10px] font-extrabold text-black uppercase tracking-tight leading-tight mt-1">
-              Micro, Small & Medium Enterprises
-            </span>
-            <span className="text-[9px] font-bold text-slate-700 tracking-wide mt-0.5">
-              Ministry of MSME • Govt. of India
-            </span>
-          </div>
+        {/* Center: Exact User-Provided MSME Image inside clean White Box Container */}
+        <div className="bg-white p-2.5 sm:p-3 rounded-2xl border-2 border-slate-200 shadow-xl flex items-center justify-center hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 select-none">
+          <img
+            src="/msme_official_logo.jpg"
+            alt="Ministry of MSME, Govt. of India"
+            className="h-12 sm:h-14 md:h-16 w-auto object-contain rounded-lg"
+          />
         </div>
 
         {/* Right: Developer Credit */}
